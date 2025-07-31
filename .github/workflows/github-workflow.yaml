@@ -9,6 +9,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
+  TEST_ABC: Mixed Case ;)
 
 jobs:
   pre-commit:
@@ -38,6 +39,15 @@ jobs:
       packages: write
 
     steps:
+      - name: lowercase IMAGE_NAME
+        run: |
+          echo "IMAGE_NAME=${IMAGE_NAME,,}" >>${GITHUB_ENV}
+          echo "TEST_LOWERCASE=${TEST_ABC,,}" >>${GITHUB_ENV}
+      
+      - name: Test lowercase
+        run: |
+          echo "Value = ${TEST_LOWERCASE}"
+
       - name: Checkout code
         uses: actions/checkout@v4
 
