@@ -108,4 +108,4 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
           echo "Synchronizing DAGs to S3 bucket"
-          aws s3 cp ml_pipeline_dag.py s3://${BUCKET_NAME}/pvc-4d006e1b-1af3-4acf-b935-adb894d975f8/ml_pipeline_dag.py --endpoint-url ${S3_ENDPOINT_URL}
+          aws s3 cp ml_pipeline_dag.py s3://${BUCKET_NAME}/pvc-955bf4ce-d426-4b2d-a9c9-9c84e90bb739/ml_pipeline_dag.py --endpoint-url ${S3_ENDPOINT_URL}
